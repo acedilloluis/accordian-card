@@ -27,41 +27,36 @@ body {
   align-items: center;
   justify-content: center;
 }
-/*
- Add div to index html which will be image container. Make its position fixed and update its position with
- media queries so that one edge of the div always touches an element in container and then extends slightly
- outside of container. Then every image in image container should have position absolute. Then line up images
- properly depending on screen size
-*/
+
 #container {
   background-color: white;
   border-radius: 1rem;
   display: flex;
   display-direction: column;
   flex-wrap: wrap;
+  height: 34rem;
   justify-content: flex-start;
   margin: 1.25rem;
   padding: 1.25rem;
+  position: relative;
   width: 22rem;
 
   & #woman-mobile {
-    --bottom-position: 64%;
-    position: absolute;
-    bottom: var(--bottom-position);
+    bottom: 26.25rem;
     left: 0;
-    right: 0;
     margin: auto;
-    max-width: 18rem;
+    position: absolute;
+    right: 0;
+    width: 18rem;
     z-index: 2;
   }
 
   & #shadow-mobile {
-    --bottom-position: 60%;
-    position: absolute;
-    bottom: var(--bottom-position);
+    bottom: 24.95rem;
     left: 0;
-    right: 0;
     margin: auto;
+    position: absolute;
+    right: 0;
     width: 18rem;
     z-index: 1;
   }
@@ -81,7 +76,8 @@ body {
   & > h1 {
     color: var(--very-dark-blue);
     flex: 1 0 100%;
-    margin-top: 40%;
+    margin-top: 8.5rem;
+    margin-bottom: 0;
     text-align: center;
   }
 
@@ -99,7 +95,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0.5rem 0;
+    padding: 1.25rem 0;
   }
 
   & .faq-title:hover {
@@ -143,11 +139,13 @@ body {
   }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 968px) {
   #container {
     display-direction: row;
+    height: 30rem;
+    overflow: hidden;
     padding: 3rem;
-    width: 55rem;
+    width: 58rem;
 
     & #woman-mobile {
       display: none;
@@ -158,33 +156,39 @@ body {
     }
 
     & #woman-desktop {
+      bottom: 4.5rem;
       display: inline-block;
       position: absolute;
-      left: 0;
-      z-index: 3;
-    }
-
-    & #box-desktop {
-      display: inline-block;
-      position: fixed;
-      left: 0;
-      right: 0;
-      margin: auto;
+      right: 33rem;
       z-index: 2;
     }
 
+    & #box-wrapper {
+      position: absolute;
+
+      & #box-desktop {
+        /* bottom: 7rem; */
+        display: inline-block;
+        margin-left: -9.3rem;
+        margin-top: 9.1rem;
+        /* left: -6rem; */
+        position: fixed;
+        z-index: 2;
+      }
+    }
+
     & #bg-desktop {
+      bottom: 1rem;
       display: inline-block;
-      position: fixed;
-      left: 0;
-      right: 0;
-      margin: auto;
+      left: -5rem;
+      position: absolute;
+      width: 30rem;
       z-index: 1;
     }
 
     & > h1 {
       flex: auto;
-      margin-top: 0;
+      margin-top: 2rem;
       margin-left: 50%;
       text-align: start;
     }
