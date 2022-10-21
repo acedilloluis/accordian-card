@@ -1,0 +1,197 @@
+@import url('https://fonts.googleapis.com/css?family=Kumbh+Sans:400,700&display=swap');
+
+:root {
+  --very-dark-blue: hsl(238, 29%, 16%);
+  --soft-red: hsl(14, 88%, 65%);
+  --soft-violet: hsl(273, 75%, 66%);
+  --soft-blue: hsl(240, 73%, 65%);
+  --very-dark-grayish-blue: hsl(237, 12%, 33%);
+  --dark-grayish-blue: hsl(240, 6%, 50%);
+  --light-grayish-blue: hsl(240, 5%, 91%);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  background-image: linear-gradient(var(--soft-violet), var(--soft-blue));
+  font-family: 'Kumbh Sans', san-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+/*
+ Add div to index html which will be image container. Make its position fixed and update its position with
+ media queries so that one edge of the div always touches an element in container and then extends slightly
+ outside of container. Then every image in image container should have position absolute. Then line up images
+ properly depending on screen size
+*/
+#container {
+  background-color: white;
+  border-radius: 1rem;
+  display: flex;
+  display-direction: column;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  margin: 1.25rem;
+  padding: 1.25rem;
+  width: 22rem;
+
+  & #woman-mobile {
+    --bottom-position: 64%;
+    position: absolute;
+    bottom: var(--bottom-position);
+    left: 0;
+    right: 0;
+    margin: auto;
+    max-width: 18rem;
+    z-index: 2;
+  }
+
+  & #shadow-mobile {
+    --bottom-position: 60%;
+    position: absolute;
+    bottom: var(--bottom-position);
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 18rem;
+    z-index: 1;
+  }
+
+  & #woman-desktop {
+    display: none;
+  }
+
+  & #box-desktop {
+    display: none;
+  }
+
+  & #bg-desktop {
+    display: none;
+  }
+
+  & > h1 {
+    color: var(--very-dark-blue);
+    flex: 1 0 100%;
+    margin-top: 40%;
+    text-align: center;
+  }
+
+  & > ul {
+    color: var(--dark-grayish-blue);
+    flex: 1 0 100%;
+    font-size: 0.75rem;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  & .faq-title {
+    border-bottom: 0.125rem solid var(--light-grayish-blue);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem 0;
+  }
+
+  & .faq-title:hover {
+    color: var(--soft-red);
+    cursor: pointer;
+  }
+
+  & .faq-title-active {
+    border: none;
+    color: var(--very-dark-blue);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-weight: 700;
+    padding: 0.5rem 0 0 0;
+  }
+
+  & .faq-body {
+    display: none;
+  }
+
+  & .faq-body-active {
+    border-bottom: 0.125rem solid var(--light-grayish-blue);
+    display: inline-block;
+    overflow-wrap: break-word;
+    padding: 0.5rem 0;
+  }
+
+  & .down-arrow {
+    flex: initial;
+    height: 7;
+    width: 10;
+  }
+
+  & .up-arrow {
+    flex: initial;
+    height: 7;
+    width: 10;
+    transform: rotate(180deg);
+  }
+}
+
+@media (min-width: 768px) {
+  #container {
+    display-direction: row;
+    padding: 3rem;
+    width: 55rem;
+
+    & #woman-mobile {
+      display: none;
+    }
+
+    & #shadow-mobile {
+      display: none;
+    }
+
+    & #woman-desktop {
+      display: inline-block;
+      position: absolute;
+      left: 0;
+      z-index: 3;
+    }
+
+    & #box-desktop {
+      display: inline-block;
+      position: fixed;
+      left: 0;
+      right: 0;
+      margin: auto;
+      z-index: 2;
+    }
+
+    & #bg-desktop {
+      display: inline-block;
+      position: fixed;
+      left: 0;
+      right: 0;
+      margin: auto;
+      z-index: 1;
+    }
+
+    & > h1 {
+      flex: auto;
+      margin-top: 0;
+      margin-left: 50%;
+      text-align: start;
+    }
+
+    & > ul {
+      flex: auto;
+      margin-left: 50%;
+    }
+  }
+}
