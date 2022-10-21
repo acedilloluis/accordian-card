@@ -2,7 +2,6 @@
   "name": "accordian-card",
   "version": "1.0.0",
   "description": "A solution for the FAQ Accordian card challenge on Frontend Mentor",
-  "main": "src/index.js",
   "source": "src/index.html",
   "scripts": {
     "start": "parcel",
